@@ -1,0 +1,44 @@
+	form {
+		height: 100px;
+		align-self: flex-start;
+		width: 100%;
+		padding-top: 0;
+		text-align: center;
+
+		@include mq(small) {
+			padding-top: 20px;
+			text-align: right;
+		}
+	   
+
+
+		#city {
+			width: 220px;
+			height: 46px;
+			border-radius: 20px;
+			border: solid 2.5px $titleColor;
+			background-color: inherit;
+			opacity: 0.73;
+			font-family: $fontContent;
+			font-size: $fontSize;
+			line-height: 1;
+			letter-spacing: 0.4px;
+			text-align: left;
+			color: $titleColor;
+			padding-left: 15px;
+			display: inline-block;
+
+			@include mq(large) {
+				width: 250px;
+				font-size: $fontSize * 1.1;
+			}
+
+			&:focus {
+				box-shadow: 0 0 10px rgba($btnBg, .4);
+			}
+
+
+		}
+
+
+	}

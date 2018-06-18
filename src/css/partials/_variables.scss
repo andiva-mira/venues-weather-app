@@ -1,0 +1,40 @@
+/********Themes********/
+//Replace theme with the following allowed values: Null....
+$theme: Null;
+
+// default color theme
+$primaryA: #63396e; /*rgb(99,57,110)*/
+$primaryB: #cd5c5c; /*rgb(205, 92, 92)*/
+$btnBg: #B21551; /*rgb(178, 21, 81)*/
+
+// all themes color config
+$mainBg: #f2f2f2;
+$titleColor: #fff;
+$textColor: #4a4a4a;
+
+
+@if $theme == Coffee {
+	$primaryA: #857c9c;
+	$primaryB: #726457;
+	$btnBg: #B21551;
+
+}  @else if $theme == Afternoon {
+	$primaryA: #323A4C;
+	$primaryB: #858C78;
+	$btnBg: #B21551;
+
+} 
+
+// fontface
+$fontSize: 1rem;
+$fontHeading: 'Montserrat', sans-serif;
+$fontContent: 'Work Sans', sans-serif;
+
+// media query breakpoints
+$breakpoints: ( 
+	xsmall: 640px,
+	small: 768px,
+	medium: 992px,
+	lmedium: 1024px,
+	large: 1200px
+);
