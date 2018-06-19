@@ -6,6 +6,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
+
 module.exports = {
 	entry: ['babel-polyfill', './src/scripts/App.js'],
 	output: {
@@ -104,7 +105,7 @@ module.exports = {
 			},
 
 			{
-				test: /\.svg/,
+				test: /\.svg$/,
 				use: {
 					loader: 'svg-url-loader',
 					options: {}
@@ -113,8 +114,8 @@ module.exports = {
 
 			{
 				test: require.resolve('snapsvg/dist/snap.svg.js'),
-				use: 'imports-loader?this=>window,fix=>module.exports=0',
-			},
+				use: 'imports-loader?this=>window,fix=>module.exports=0,define=>false'
+			}
 
 		]
 	},
@@ -124,5 +125,9 @@ module.exports = {
 			snapsvg: 'snapsvg/dist/snap.svg.js'
 		}
 	}
+
+ 	// externals: {
+  //   	snapsvg: 'Snap'
+  // 	}
 
 }

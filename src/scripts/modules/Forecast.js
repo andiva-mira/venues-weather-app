@@ -61,10 +61,10 @@ export function ForecastApiCall() {
 		$container.style.display = "block";
 		$container.style.opacity = 1;
 		getForecast().then(days => renderForecast(days));
-		return false;
+		//return false;
 	}
 
-	$submit.addEventListener('click', searchWeather);
+	$submit.addEventListener('click', searchWeather, false);
 
 }
 

@@ -51,19 +51,19 @@ export function VenuesApiCall() {
 			const venueAddress = (venues[index].location.address) ? (`<p>${venues[index].location.address}</p>`) : `<p></p>`;
 
 			let venueContent =
-				`<div class="content-wrapper shape venue">
-					<div class="shape-face shape-face--front">
-						<h2>${venues[index].name}</h2>
-						<h3>Address:</h3>
-						${venueAddress}
-						<p> ${venues[index].location.city}</p>
-						<p> ${venues[index].location.country}</p>
-					 	<h3> Category:</h3>
-						<p>${venues[index].categories[0].pluralName}</p>
-					</div>
-					<div class="shape-face shape-face--back">
-					</div>
-				</div>`;
+				`<div class="venue venue-shape">
+						<div class="venue-shape--face venue-shape--face---front">
+							<h2>${venues[index].name}</h2>
+							<h3>Address:</h3>
+							${venueAddress}
+							<p> ${venues[index].location.city}</p>
+							<p> ${venues[index].location.country}</p>
+						 	<h3> Category:</h3>
+							<p>${venues[index].categories[0].pluralName}</p>
+						</div>
+						<div class="venue-shape--face venue-shape--face---back">
+						</div>
+					</div>`;
 			$venues.innerHTML += venueContent;
 		});
 
@@ -77,9 +77,9 @@ export function VenuesApiCall() {
 		$container.style.display = "block";
 		$container.style.opacity = 1;
 		getVenues().then(venues => renderVenues(venues));
-		return false;
+		//return false;
 	}
 
-	$submit.addEventListener('click', searchVenue );
+	$submit.addEventListener('click', searchVenue, false );
 
 }

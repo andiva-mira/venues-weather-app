@@ -1,0 +1,57 @@
+.venue-scene {
+	perspective: 400px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+
+.venue-shape {
+	cursor: pointer;
+	position: relative;
+	transform-style: preserve-3d;
+	transform: translateZ(-100px);
+	width: 200px;
+	height: 200px;
+
+	&--face {
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		color: $textColor;
+		text-align: center;
+		transform-origin: 0% 50%;
+		transition: all .7s linear;
+		clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+	}
+
+	&--face---front {
+		background-color: rgba(255, 255, 255, .4);
+		//transform: rotateX(0) rotateY(25deg) translateZ(130px);
+		transform:  translateZ(130px);
+	}
+
+	&--face---back {
+		background-color: rgba(255, 255, 255, .2);
+		//transform: rotateX(0) rotateY(25deg) translateZ(100px);
+		transform:  translateZ(100px);
+	}
+
+
+	&:hover {
+	.venue-shape--face---front {
+		//transform: rotateY(25deg) translateZ(160px);
+		transform: translateZ(160px);
+	}
+
+	.venue-shape--face---back {
+		//transform: rotateY(25deg) translateZ(50px);
+		transform:  translateZ(50px);
+	}
+}
+
+}
+
+
+
+
