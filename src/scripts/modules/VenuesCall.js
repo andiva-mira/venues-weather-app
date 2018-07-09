@@ -1,3 +1,5 @@
+import VenuePanels from './VenuePanels';
+import ShapesAnimation from './ShapesAnimation';
 
 export function VenuesApiCall() {
 
@@ -28,7 +30,7 @@ export function VenuesApiCall() {
 	// AJAX function
 	async function getVenues() {
 		const city = $input.value;
-		const urlToFetch = `${url}${city}&limit=6&client_id= ${clientId}&client_secret=${clientSecret}&v=${date}`;
+		const urlToFetch = `${url}${city}&limit=8&client_id=${clientId}&client_secret=${clientSecret}&v=${date}`;
 
 		try {
 			let response = await fetch(urlToFetch);
@@ -38,7 +40,7 @@ export function VenuesApiCall() {
 				let venues = jsonResponse.response.groups[0].items.map(venueItem => venueItem.venue);
 				console.log(venues);
 				return venues;
-			}
+			} 
 			throw new Error('Request failed!');
 		} catch (error) {
 			console.log(error);
@@ -46,28 +48,36 @@ export function VenuesApiCall() {
 	}
 
 	// Render function
-		function renderVenues(venues) {
-		venues.map(($venue, index) => {
-			const venueAddress = (venues[index].location.address) ? (`<p>${venues[index].location.address}</p>`) : `<p></p>`;
+	function renderVenues(venues) {
+		venues.map((venue, index) => {
+			const venueAddress = (venue.location.address) ? (`<p>${venue.location.address}</p>`) : `<p></p>`;
 
 			let venueContent =
-				`<div class="venue venue-shape">
-						<div class="venue-shape--face venue-shape--face---front">
-							<h2>${venues[index].name}</h2>
-							<h3>Address:</h3>
-							${venueAddress}
-							<p> ${venues[index].location.city}</p>
-							<p> ${venues[index].location.country}</p>
-						 	<h3> Category:</h3>
-							<p>${venues[index].categories[0].pluralName}</p>
+				`<div class="venue-container">
+					<div class="venue">
+						<div class="venue-face venue-face--front">
+							<div class="venue-face--front---inner">
+								<h2>${venue.name}</h2>
+							 	<h3> 
+								 	<span>Type of Attraction: </span>
+									<span>${venue.categories[0].pluralName}</span>
+								</h3>
+							</div>
 						</div>
-						<div class="venue-shape--face venue-shape--face---back">
+						<div class="venue-face venue-face--back">
+							<div class="venue-face--back---inner">
+								<h3>Address:</h3>
+								${venueAddress}
+								<p> ${venue.location.city}</p>
+								<p> ${venue.location.country}</p>
+							</div>
 						</div>
-					</div>`;
+					</div>
+				</div>`;
 			$venues.innerHTML += venueContent;
 		});
 
-		$destination.innerHTML = `<h2>${venues[0].location.city}</h2>`;
+		$destination.innerHTML = `${venues[0].location.city}`;
 	}
 
 
@@ -76,10 +86,18 @@ export function VenuesApiCall() {
 		$destination.innerHTML = ' ';
 		$container.style.display = "block";
 		$container.style.opacity = 1;
-		getVenues().then(venues => renderVenues(venues));
-		//return false;
+
+
+
+		getVenues().then(venues => renderVenues(venues)).then(() => {
+			new VenuePanels();
+			new ShapesAnimation("#contentRightCanvas", " #783a6c");
+
+
+
+		});
 	}
 
-	$submit.addEventListener('click', searchVenue, false );
+	$submit.addEventListener('click', searchVenue, false);
 
 }

@@ -6,8 +6,9 @@ header {
 	overflow: hidden;
 	height: 100vh;
 
-	@include mq(small) {
+	@include mq(medium) {
 		@include flex-row($justify-content: center);
 
 	}
+
 }

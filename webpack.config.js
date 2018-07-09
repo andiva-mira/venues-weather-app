@@ -16,7 +16,11 @@ module.exports = {
 
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: './src'
+		contentBase: './src', 
+		open: true,
+		headers: {
+	      "Access-Control-Allow-Origin": "*"
+		}
 	},
 
 	optimization: {
@@ -103,6 +107,12 @@ module.exports = {
 					}
 				}]
 			},
+
+			// {
+			// 	test: /\.svg$/,
+			// 	use: ['svg-inline-loader?classPrefix','svg-url-loader' ]
+			// },
+
 
 			{
 				test: /\.svg$/,

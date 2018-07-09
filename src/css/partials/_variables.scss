@@ -7,6 +7,10 @@ $primaryA: #63396e; /*rgb(99,57,110)*/
 $primaryB: #cd5c5c; /*rgb(205, 92, 92)*/
 $secondaryB: #380618;
 $btnBg: #B21551; /*rgb(178, 21, 81)*/
+$venueBg: #6C2B45;
+$weatherBg: #89313d;
+$venueShadow: #B88197;
+$weatherShadow: #D58C96;
 
 
 // all themes color config
@@ -32,11 +36,22 @@ $fontSize: 1rem;
 $fontHeading: 'Montserrat', sans-serif;
 $fontContent: 'Work Sans', sans-serif;
 
-// media query breakpoints
+// media query breakpoints map
 $breakpoints: ( 
+	xxsmall: 480px,
 	xsmall: 640px,
 	small: 768px,
 	medium: 992px,
 	lmedium: 1024px,
 	large: 1200px
 );
+
+
+// media query  height breakpoints map and orientation landscape
+$heights: (
+	xsmall: 480px,
+	small: 640px,
+	medium: 768px
+);
+
+

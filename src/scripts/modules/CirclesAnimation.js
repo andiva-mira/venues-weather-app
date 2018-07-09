@@ -1,18 +1,17 @@
 import Snap from 'snapsvg';
 
-
-export function CirclesAnimation() {
+export const CirclesAnimation = () => {
 	const s = Snap("#svg-mask");
 	let circle = s.select(".circle");
 	const $submit = document.getElementById('button');
 
 
-	function randomRange(min, max) {
+	const randomRange = (min, max) => {
 		return Math.floor( Math.random() * (max - min) + min);
 
-	}
+	};
 
-	function cloneCircle() {
+	const cloneCircle = () => {
 		for (let i = 1; i < 7; i++) {
 			circle.clone().attr({
 				stroke: '#000',
@@ -22,27 +21,34 @@ export function CirclesAnimation() {
 				r: randomRange(50, 130)
 			});
 		}
-	}
+	};
 		
-	window.onload = function() {
+	window.onload = () => {
 		cloneCircle();
 	}
 
 
-	function eventHandler() {
+	const eventHandler = () => {
 		circle = s.selectAll(".circle");
 
-		setTimeout(function() {
+		setTimeout(() => {
 			const content = document.getElementById('content');
-			circle.animate({ r: 900 }, 1500, mina.easing, function() {
-				content.classList.add("is-content-visible");
+
+			circle.animate({ r: 1200 }, 500, mina.easing, () => {
+				circle.animate({r:0}, 1000, mina.easing, () => {
+					content.classList.add("is-content-visible");
+					document.querySelector(".svg-clipped").style.visibility = "hidden";	
+				});
+						
 			});
-		}, 200);
+
+		}, 100);
 	}
 
 
-	$submit.addEventListener("click", eventHandler, false);
-
+	$submit.addEventListener("click", () => {
+		eventHandler();
+	}, false);
 
 }
 

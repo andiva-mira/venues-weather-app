@@ -2,35 +2,44 @@
 	margin: 0 auto;
 	text-align: center;
 	background: rgba(0,0,0,.3) url('../images/header-bg.jpg') 0% 100%/cover no-repeat;
-	background-blend-mode: multiply;
-	height: 100vh;
+	background-blend-mode: multiply;	
+	height: 40vh;
 	position: relative;
 	width: 100%;
-	// float: left;
-	clip-path: circle(65% at 40% 0%);
-	// shape-outside: circle(65% at 40% 0%) border-box;
 	shape-margin: 2em;
 	flex-grow: 2;
 	overflow: hidden;
 	transition: background-position 1s cubic-bezier(.04,.47,.64,.96);
+	clip-path: ellipse(95% 95% at 50% 0%);
 
 	@include mq(xsmall) {
-		clip-path: circle(55% at 40% 0%);
-		shape-outside: circle(55% at 40% 0%) border-box;
 		@include flex-col;
 		
+	}
+
+	@include mql(xsmall) {
+		height: 50vh;
 	}
 
 	@include mq(small) {
 		justify-content: flex-end;
 		align-items: flex-start;
+		height: 50vh;
+	}
+
+	@include mq(medium) {
+		clip-path: circle(75% at 0% 50%);
+		clip-path: ellipse(75% 100% at 0% 50%);
+		shape-outside: ellipse(75% 100% at 0% 50%) border-box;	
+		width: 70%;
+		height: 100vh;
+		background-position: -150px bottom;
+
 	}
 
 	&:hover {
 		background-position: 1%  100%;
 	}
-
-
 
 
 	&::after {
@@ -45,26 +54,21 @@
 	p {
 		color: $primaryA;
 		z-index: 10;
-		font-size: $fontSize * 1.5;
+		font-size: $fontSize * 1.2;
 		font-family:$fontContent;
 		text-align: left;
 		margin:0;
 		padding: 0;
-		position: relative;
-		top:30px;
+		position: absolute;
+		bottom:17%;
 		left: 30px;
 		line-height: 1;
 		max-width: 220px;
 		text-shadow: 1px 1px 0px rgba(250,250,250,.8);
-
-		@include mq(xsmall) {
-			top: 0;
-			left:0;
-		}
+		z-index: 0;
 
 		@include mq(small) {
 			font-size: $fontSize * 2.3;
-			margin-bottom: 60px;
 			max-width: 320px;
 			line-height: 1;
 			left: 35px;
@@ -101,13 +105,7 @@
 
 	}
 
-		@include mq(small) {
-		clip-path: circle(85% at 0% 50%);
-		shape-outside: circle(85% at 0% 50%) border-box;	
-		width: 80%;
-		background-position: -150px bottom;
 
-	}
 
 
 }
@@ -117,11 +115,24 @@
 	max-width: 90%;
 	padding-right: 0;
 	padding-bottom: 20px;
-	height: 100%;
+	height: 60vh;
+	position: relative;
+
+	@include mql(xsmall) {
+		height: 50vh;
+	}
 
 	@include mq(small) {
-		max-width: 250px;
-		padding-right: 30px;
+		height: 50vh;
+
+	}
+
+	@include mq(medium) { 
+		width: 30%;
+		height: 100%;
+		max-width: 100%;
+		max-width: unset;
+		padding-right: 50px;
 	}
 
 	@include mq(large) {
@@ -131,6 +142,7 @@
 
 	.page-title {
 		margin-top: 0;
+		margin-bottom: 20px;
 		
 		@include mq(small) {
 			font-size: $fontSize * 3;
@@ -142,6 +154,8 @@
 			}
 
 	}
+
+
 
 }
 

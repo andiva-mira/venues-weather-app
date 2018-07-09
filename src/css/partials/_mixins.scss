@@ -19,6 +19,18 @@
   }
 }
 
+
+@mixin mql($height) { 
+  @if map-has-key($heights, $height) {
+    @media (max-height: #{map-get($heights, $height)}) and (orientation: landscape) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$height}`. " + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
 @mixin flex-row($justify-content: center, $flex-wrap: nowrap) {
   display: flex;
   flex-direction: row;
@@ -33,5 +45,49 @@
 	align-items: $align-items;
   justify-content: $justify-content;
 }
+
+
+@mixin randomShapeSize($className) {
+  $i: 1;
+  @while $i < 9 {
+    .#{$className}--#{$i} { 
+     width: floor(40px + 1.3*$i); 
+     height: floor(40px + 1.3*$i); 
+    }
+
+    $i: $i + 1;
+  }
+}
+
+@mixin randomShapeSize2($className) {
+  $i: 1;
+  @while $i < 9 {
+    .#{$className}--#{$i} { 
+     width: floor(60px + 1.3*$i); 
+     height: floor(60px + 1.3*$i); 
+    }
+
+    $i: $i + 1;
+  }
+}
+
+
+@mixin randomPosition($className) {
+  $i: 1;
+  @while $i < 9 {
+    .#{$className}--#{$i} { 
+      position:absolute;
+     top: 2*$i + random(80) + %; 
+     left: 2*$i + random(70) + %; 
+    }
+
+    $i: $i + 1;
+  }
+}
+
+
+
+
+
  
 
