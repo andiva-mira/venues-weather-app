@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ghpages = require("gh-pages");
 
 
 module.exports = {
@@ -141,3 +142,5 @@ module.exports = {
   // 	}
 
 }
+
+ghpages.publish('dist', function(err) {});
