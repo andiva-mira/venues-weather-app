@@ -12,7 +12,7 @@ const ghpages = require('gh-pages');
 module.exports = {
 	entry: ['babel-polyfill', './src/scripts/App.js'],
 	output: {
-		path: path.join(__dirname, '/dist'),
+		path: path.join(__dirname, '/docs'),
 		filename: '[name].[hash].js'
 	},
 
@@ -61,7 +61,7 @@ module.exports = {
 	},
 
 	plugins: [
-		new CleanWebpackPlugin('dist', {}),
+		new CleanWebpackPlugin('docs', {}),
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
@@ -144,6 +144,6 @@ module.exports = {
 
 }
 
-ghpages.publish('dist', function(err) {});
+ghpages.publish('docs', function(err) {});
 
 
