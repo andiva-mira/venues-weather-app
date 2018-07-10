@@ -38,13 +38,11 @@
         transition: transform ease-out .6s
     }
 
-    &:hover {
-        
+    &:hover {        
         span {
             transform: scale(0);
             opacity: 0;
         }
-
     }
 
 
@@ -56,8 +54,7 @@
         &::before {
             background-image: url(../images/icons/search_48px.svg);
             transform: scale(0);
-            opacity: 0;
-            
+            opacity: 0;          
         }
 
         &::after {

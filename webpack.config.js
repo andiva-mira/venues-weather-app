@@ -5,13 +5,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const ghpages = require("gh-pages");
+const ghpages = require('gh-pages');
+
 
 
 module.exports = {
 	entry: ['babel-polyfill', './src/scripts/App.js'],
 	output: {
-		path: path.join(__dirname, '/dist/'),
+		path: path.join(__dirname, '/dist'),
 		filename: '[name].[hash].js'
 	},
 
@@ -144,3 +145,5 @@ module.exports = {
 }
 
 ghpages.publish('dist', function(err) {});
+
+
