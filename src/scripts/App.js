@@ -19,14 +19,8 @@ const venuesCall = VenuesApiCall();
 const circlesAnim = CirclesAnimation();
 new ContentExpand();
 
-const win = window.innerWidth;
-if (win < 550 ) {
-	const svgAttr = [londonEye, eiffelTower, windmill];
-	new SvgLoad("#canvas", svgAttr);
-}  else {
-	const svgAttr = [londonEye, eiffelTower, windmill, japan ];
-	new SvgLoad("#canvas", svgAttr);
-}
+const svgAttr = [londonEye, eiffelTower, windmill, japan ];
+new SvgLoad("#canvas", svgAttr);
 
 const svgRight = [cloudPair, cloud, airBalloon];
 new SvgLoad("#contentRightCanvas", svgRight );

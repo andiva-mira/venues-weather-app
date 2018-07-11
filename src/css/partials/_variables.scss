@@ -46,6 +46,16 @@ $breakpoints: (
 	large: 1200px
 );
 
+// media query HI RES breakpoints map
+$hrbreakpoints: ( 
+	xxsmall: 480px,
+	xsmall: 640px,
+	small: 768px,
+	medium: 992px,
+	lmedium: 1024px,
+	large: 1200px
+);
+
 
 // media query  height breakpoints map and orientation landscape
 $heights: (
