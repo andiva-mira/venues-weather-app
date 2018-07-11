@@ -5,9 +5,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const ghpages = require('gh-pages');
-
-
 
 module.exports = {
 	entry: ['babel-polyfill', './src/scripts/App.js'],
@@ -18,11 +15,7 @@ module.exports = {
 
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: './src', 
-		open: true,
-		headers: {
-	      "Access-Control-Allow-Origin": "*"
-		}
+		contentBase: './docs'
 	},
 
 	optimization: {
@@ -101,27 +94,14 @@ module.exports = {
 				use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
 			},
 			{
-				test: /\.(png|jpg|gif)$/,
+				test: /\.(png|jp(e*)g|svg)$/,
 				use: [{
 					loader: 'url-loader',
 					options: {
-						limit: 8192
+						limit: 8000,
+						name: 'images/[hash]-[name].[ext]'
 					}
 				}]
-			},
-
-			// {
-			// 	test: /\.svg$/,
-			// 	use: ['svg-inline-loader?classPrefix','svg-url-loader' ]
-			// },
-
-
-			{
-				test: /\.svg$/,
-				use: {
-					loader: 'svg-url-loader',
-					options: {}
-				}
 			},
 
 			{
@@ -138,12 +118,7 @@ module.exports = {
 		}
 	}
 
- 	// externals: {
-  //   	snapsvg: 'Snap'
-  // 	}
-
 }
 
-ghpages.publish('docs', function(err) {});
 
 
