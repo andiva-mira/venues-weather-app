@@ -8,9 +8,10 @@
     height: $height;
 }
 
+// regular
 @mixin mq($breakpoint) { 
   @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: #{map-get($breakpoints, $breakpoint)}) and (-webkit-min-device-pixel-ratio: 1) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)})   {
       @content;
     }
   }
@@ -19,18 +20,7 @@
   }
 }
 
-@mixin mqhr($hrbreakpoint) { 
-  @if map-has-key($hrbreakpoints, $hrbreakpoint) {
-    @media (min-width: #{map-get($hrbreakpoints, $hrbreakpoint)}) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)  {
-      @content;
-    }
-  }
-  @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$hrbreakpoint}`. " + "Please make sure it is defined in `$breakpoints` map.";
-  }
-}
-
-
+// regular landscape and max-height
 @mixin mql($height) { 
   @if map-has-key($heights, $height) {
     @media (max-height: #{map-get($heights, $height)}) and (orientation: landscape) {
@@ -39,6 +29,31 @@
   }
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$height}`. " + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+
+// hi res portrait
+@mixin mqhr($hrbreakpoint) { 
+  @if map-has-key($hrbreakpoints, $hrbreakpoint) {
+    @media (min-width: #{map-get($hrbreakpoints, $hrbreakpoint)}) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)  and (orientation: portrait)  {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$hrbreakpoint}`. " + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+// hi res landscape
+@mixin mqlhr($hrwidth) { 
+  @if map-has-key($hrwidths, $hrwidth) {
+    @media (min-width: #{map-get($hrwidths, $hrwidth)}) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$hrwidth}`. " + "Please make sure it is defined in `$breakpoints` map.";
   }
 }
 
@@ -76,6 +91,32 @@
     .#{$className}--#{$i} { 
      width: floor(60px + 1.3*$i); 
      height: floor(60px + 1.3*$i); 
+    }
+
+    $i: $i + 1;
+  }
+}
+
+// random shapes for Hi Res
+@mixin randomShapeSizeHR($className) {
+  $i: 1;
+  @while $i < 9 {
+    .#{$className}--#{$i} { 
+     width: floor(90px + 1.3*$i); 
+     height: floor(90px + 1.3*$i); 
+    }
+
+    $i: $i + 1;
+  }
+}
+
+// random shapes for Hi Res
+@mixin randomShapeSize2HR($className) {
+  $i: 1;
+  @while $i < 9 {
+    .#{$className}--#{$i} { 
+     width: floor(120px + 1.3*$i); 
+     height: floor(120px + 1.3*$i); 
     }
 
     $i: $i + 1;

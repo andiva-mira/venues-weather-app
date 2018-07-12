@@ -3,7 +3,6 @@
     cursor: pointer; 
     font-family: $fontContent;
     font-size: 18px;
-    font-weight: 600;
     letter-spacing: 0.5px;
     text-align: center;
     text-transform: uppercase;  
@@ -51,6 +50,55 @@
         color: $titleColor;
         width: 140px;
 
+        @include mql(xsmall) {
+            margin-left: 10px;
+        }
+
+        @include mq(small) {
+            width: 30%;
+            margin-left: 10px;
+        }
+
+        @include mq(medium) {
+            display: inlie-block;
+            width: 60%;
+        }
+
+        @include mqhr(small) {
+            border-radius: 60px;
+            display: block;
+            font-size: $fontSize * 3;
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            margin: 30px 0 0 0;
+            padding: 0;
+        }
+
+        @include mqhr(medium) {
+            font-size: $fontSize * 2;
+            height: 80px;
+            line-height: 80px;
+        }
+
+        @include mqlhr(xsmall) {
+            border-radius: 60px;
+            display: inline-block;
+            font-size: $fontSize * 2;
+            width: 30%;
+            height: 70px;
+            line-height: 70px;
+            margin: 0 0 0 10px;
+            padding: 0;
+        }
+
+         @include mqlhr(lmedium) {
+            width: 100%;
+            margin: 20px 0 0;
+
+         }
+
+
         &::before {
             background-image: url(../images/icons/search_48px.svg);
             transform: scale(0);
@@ -97,6 +145,16 @@
            margin-top: -30px;
         }
 
+        @include mqhr(small) {
+           width: 120px;
+           height: 120px;
+        }
+
+        @include mqlhr(small) {
+           width: 120px;
+           height: 120px;
+        }
+
         span {
             display: block;
             position: relative;
@@ -114,6 +172,16 @@
                     width: 36px;
                     height: 60px;
                 }
+
+                @include mqhr(small) {
+                    width: 72px;
+                    height: 120px;
+                }
+
+                @include mqlhr(small) {
+                    width: 72px;
+                    height: 120px;
+                }
             }
         } 
 
@@ -124,6 +192,14 @@
 
             @include mq(medium) {
                 background-size: 36px;
+            }
+
+            @include mqhr(small) {
+                background-size: 72px;
+            }
+
+            @include mqlhr(small) {
+                background-size: 72px;
             }
         }
 

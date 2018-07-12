@@ -12,9 +12,6 @@
 	@include mq(medium) {
 		padding: 0;
 	}
-
-
-	
 }
 
 .weather-container {
@@ -35,6 +32,18 @@
 		height: 250px;
 	}
 
+	@include mqhr(small) {
+		margin: 30px auto;
+		width: 60vw;
+		height: 60vw;
+	}
+
+	@include mqlhr(small) {
+		margin: 30px auto;
+		width: 40vw;
+		height: 40vw;
+	}
+
 }
 
 .weather {
@@ -48,6 +57,19 @@
 	@include mq(medium) {
 		width: 250px;
 		height: 250px;
+	}
+
+	@include mqhr(small) {
+		margin: 30px auto;
+		width: 60vw;
+		height: 60vw;
+	}
+
+
+	@include mqlhr(small) {
+		margin: 30px auto;
+		width: 40vw;
+		height: 40vw;
 	}
 
 	&-face {
@@ -109,9 +131,27 @@
 
 
 	h2 {
-		font-size: 22px;
+		font-size: $fontSize * 1.5;
 		font-family: 'Great Vibes', cursive;
 		text-transform: none;
+
+		@include mqhr(small) {
+			font-size: $fontSize * 4;
+		}
+
+		@include mqlhr(small) {
+			font-size: $fontSize * 2.2;
+		}
+
+		@include mqlhr(large) {
+			font-size: $fontSize * 3;
+		}
+
+		@include mqlhr(xlarge) {
+			font-size: $fontSize * 4;
+		}
+
+
 	}
 
 
@@ -122,6 +162,17 @@
 
 		@include mq(medium) {
 			margin: 20px auto 0;
+		}
+
+		@include mqhr(small) {
+			width: 130px;
+			height: 130px;
+		}
+
+
+		@include mqlhr(small) {
+			width: 130px;
+			height: 130px;
 		}
 	}
 

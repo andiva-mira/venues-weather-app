@@ -8,10 +8,9 @@ class VenuePanels {
 
 	flipVenuePanel() {
 		this.venueEls.forEach((item, idex) => {
-			item.addEventListener("click", function(e) {
-				e.stopPropagation()
+			item.addEventListener("click", function() {
 				this.classList.toggle("venue--flipped");
-				console.log(this);
+				//console.log(this);
 			});
 		});
 

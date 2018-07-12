@@ -74,9 +74,10 @@ export const ForecastApiCall = () => {
 	// display content on submit 
 	const searchWeather = () => {
 		$weather.innerHTML = "";
-		$container.style.display = "block";
-		$container.style.opacity = 1;
+		
 		getForecast().then(weatherData => renderForecast(weatherData)).then(() => {
+			$container.style.display = "block";
+			$container.style.opacity = 1;
 			new ForecastPanels();
 			new ShapesAnimation("#contentLeftCanvas", "#b05261");
 		});

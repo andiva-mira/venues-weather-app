@@ -62,7 +62,7 @@ module.exports = {
 			filename: 'styles.[hash].css'
 		}),
 		new FaviconsWebpackPlugin({
-			logo: './src/news-icon.png',
+			logo: './src/balloon.png',
 			prefix: 'favicon-[hash]/',
 			persistentCache: true,
 			inject: true,

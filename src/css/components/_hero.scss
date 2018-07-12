@@ -18,7 +18,8 @@
 	}
 
 	@include mql(xsmall) {
-		height: 50vh;
+		background-position: 0% 0%;
+		height: 40vh;
 	}
 
 	@include mq(small) {
@@ -26,6 +27,7 @@
 		align-items: flex-start;
 		height: 50vh;
 	}
+
 
 	@include mq(medium) {
 		clip-path: circle(75% at 0% 50%);
@@ -35,6 +37,11 @@
 		height: 100vh;
 		background-position: -150px bottom;
 
+	}
+
+
+	@include mqlhr(small) {
+		background-position: 0% 0%;
 	}
 
 	&:hover {
@@ -54,7 +61,7 @@
 	p {
 		color: $primaryA;
 		z-index: 10;
-		font-size: $fontSize * 1.2;
+		font-size: $fontSize * 1.6;
 		font-family:$fontContent;
 		text-align: left;
 		margin:0;
@@ -67,6 +74,10 @@
 		text-shadow: 1px 1px 0px rgba(250,250,250,.8);
 		z-index: 0;
 
+		@include mql(xsmall) {
+			max-width: 80%;
+		}
+
 		@include mq(small) {
 			font-size: $fontSize * 2.3;
 			max-width: 320px;
@@ -74,17 +85,55 @@
 			left: 35px;
 		}
 
+		@include mq(medium) {
+			bottom: 10px;
+		}
+
+
+		@include mqhr(small) {
+			font-size: $fontSize * 5;
+			max-width: 70%;
+			left: 60px;
+		}
+
+
+        @include mqhr(medium) {
+            font-size: $fontSize * 4;
+            left: 15px;
+
+        }
+
+        @include mqlhr(xsmall) {
+        	bottom: 21%;
+        	font-size: $fontSize * 3;
+        	max-width: 70%;
+        }
+
+        @include mqlhr(lmedium) {
+            bottom: 2%;
+            font-size: 3rem;
+            max-width: 60%;
+        }
+
+
+		@include mqlhr(large) {
+			left: 30px;
+			max-width: 50%;
+		}
+
+
+
+
 
 		&::before {
-			@include pseudo($height:8px);
+			@include pseudo($width:8px, $height: 110%, $left: -8px);
 			display: block;
 			border-radius: 2px;
-			background: linear-gradient(to right, $btnBg 0%, $primaryA 60%, rgba($primaryB, .8) 100%);
-			background-size: 200% 200%;
-			animation: Gradient 15s linear infinite;
-			transition: all 1s linear;
-			transform: rotate(90deg);
-			transform-origin: 0 0%;
+			background: linear-gradient(to bottom,$primaryB 0%, $primaryA 100%);			
+
+			@include mqhr(small) {
+				@include pseudo($width:16px, $left: -16px);
+			}
 		}
 
 
@@ -93,6 +142,10 @@
 			background-color: rgba(white ,.6);
 			line-height: 1.3;
 			padding: 0 5px;
+
+			@include mqhr(small) {
+				padding: 0 10px;
+			}
 		}
 	}
 
@@ -100,12 +153,6 @@
 		display: block;
 		max-width: 100%;
 	}
-
-	.border {
-
-	}
-
-
 
 
 }
@@ -119,7 +166,7 @@
 	position: relative;
 
 	@include mql(xsmall) {
-		height: 50vh;
+		height: 60vh;
 	}
 
 	@include mq(small) {
@@ -133,6 +180,7 @@
 		max-width: 100%;
 		max-width: unset;
 		padding-right: 50px;
+		margin-left: -5%;
 	}
 
 	@include mq(large) {
@@ -140,35 +188,66 @@
 		padding-right:60px;
 	}
 
+	@include mqhr(small) {
+		height: 60vh;
+		max-width: 80%;
+	}
+
+	@include mqhr(lmedium) {
+		height: 100%;
+		max-width: 100%;
+		margin-left: 0;
+	}
+
+
 	.page-title {
-		margin-top: 0;
+		margin-top: -17%;
 		margin-bottom: 20px;
+
+		@include mql(xsmall) {
+			margin-top:0;
+			margin-bottom: 0;
+		}
 		
 		@include mq(small) {
-			font-size: $fontSize * 3;
+			font-size: $fontSize * 4;
 			text-align: right;
 		}
 
 		@include mq(large) {
+			margin-top: 0;
 			font-size: $fontSize * 4;
-			}
+		}
+
+		@include mqhr(small) {
+			font-size: $fontSize * 5;
+			margin-top: -20%;
+		}
+
+		@include mqhr(medium) {
+			font-size: $fontSize * 5;
+			margin-top: 0;
+		}
+
+
+		@include mqlhr(xsmall) {
+			font-size: $fontSize * 3;
+			margin-top: -10%;
+		}
+
+		@include mqlhr(lmedium) {
+			font-size: $fontSize * 4;
+			margin-top: -20%;
+		}
+
+
+		@include mqlhr(xlarge) {
+			font-size: $fontSize * 5.5;
+		}
+
 
 	}
-
-
 
 }
 
-@keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-
-}
 
