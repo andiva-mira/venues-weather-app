@@ -24,6 +24,16 @@
 		width: 80%;
 		padding: 0;
 	}
+
+	@include mqhr(small) {
+		padding: 0 15px;
+		width: 100%;
+	}
+
+	@include mqlhr(small) {
+		padding: 0 15px;
+		width: 100%;
+	}
 }
 
 .venue-container {
@@ -49,6 +59,20 @@
 		height: 230px;
 	}
 
+	@include mqhr(small) {
+		margin: 30px auto;
+		width: 65vw;
+		height: calc(65vw / 1.2);
+		min-height: calc(65vw / 1.2);		
+	}
+
+	@include mqlhr(small) {
+		margin: 30px auto;
+		width: 45vw;
+		height: calc(45vw / 1.2);
+		min-height: calc(45vw / 1.2);		
+	}
+
 }
 
 .venue {
@@ -67,6 +91,19 @@
 	@include mq(medium) {
 		width: 400px;
 		height: 230px;
+	}
+
+	@include mqhr(small) {
+		width: 65vw;
+		height: calc(65vw / 1.2);
+		min-height: calc(65vw / 1.2);	
+	}
+
+	@include mqlhr(small) {
+		margin: 30px auto;
+		width: 45vw;
+		height: calc(45vw / 1.2);
+		min-height: calc(45vw / 1.2);	
 	}
 	
 	&-face {
@@ -96,6 +133,19 @@
 		@include mq(medium) {
 		width: 400px;
 		height: 230px;
+		}
+
+		@include mqhr(small) {
+			width: 65vw;
+			height: calc(65vw / 1.2);
+			min-height: calc(65vw / 1.2);	
+		}
+
+		@include mqlhr(small) {
+			margin: 30px auto;
+			width: 45vw;
+			height: calc(45vw / 1.2);
+			min-height: calc(45vw / 1.2);	
 		}
 
 			&::after {
@@ -137,12 +187,12 @@
 					transform: scale(0);
 					transition: all .6s cubic-bezier(0, .24, .68, .98) .5s;
 
-					&::after {
-						@include pseudo($top:null,$height: 10px);
-						bottom:-10px;
-						background: repeating-linear-gradient(180deg,$venueShadow 0%, $venueShadow 5%, transparent 5%, transparent 50%, $venueShadow 50%, $venueShadow 55%, transparent 55%, transparent 95%, $venueShadow 95%, $venueShadow 100%);
+					// &::after {
+					// 	@include pseudo($top:null,$height: 10px);
+					// 	bottom:-10px;
+					// 	background: repeating-linear-gradient(180deg,$venueShadow 0%, $venueShadow 5%, transparent 5%, transparent 50%, $venueShadow 50%, $venueShadow 55%, transparent 55%, transparent 95%, $venueShadow 95%, $venueShadow 100%);
 
-					}
+					// }
 				}
 			}
 

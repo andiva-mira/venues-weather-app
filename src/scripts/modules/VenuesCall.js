@@ -84,17 +84,14 @@ export function VenuesApiCall() {
 	function searchVenue() {
 		$venues.innerHTML = "";
 		$destination.innerHTML = ' ';
-		$container.style.display = "block";
-		$container.style.opacity = 1;
-
-
 
 		getVenues().then(venues => renderVenues(venues)).then(() => {
+			$container.style.display = "block";
+			$container.style.opacity = 1;
+			const venuesHeight = $venues.offsetHeight;
+			$container.style.height = venuesHeight + 130 + "px";
 			new VenuePanels();
 			new ShapesAnimation("#contentRightCanvas", " #783a6c");
-
-
-
 		});
 	}
 

@@ -22,24 +22,9 @@
 	top:0;
 	left: 0;
 	width: 100%;
-	height: 100%;
-	height: 1700px;
+	min-height: 100vh;
 	overflow: hidden;	
 	transition: opacity .4s ease-out;
-
-	@include mq(xsmall) {
-		height: 1050px;
-	}
-	
-	@include mq(medium) {
-		height: 2300px;
-	}
-
-	@include mq(large) {
-		height: 1200px;
-	}
-	
-
 
 }
 

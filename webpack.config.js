@@ -6,21 +6,16 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
-
 module.exports = {
 	entry: ['babel-polyfill', './src/scripts/App.js'],
 	output: {
-		path: path.join(__dirname, '/dist/'),
+		path: path.join(__dirname, '/docs'),
 		filename: '[name].[hash].js'
 	},
 
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: './src', 
-		open: true,
-		headers: {
-	      "Access-Control-Allow-Origin": "*"
-		}
+		contentBase: './docs'
 	},
 
 	optimization: {
@@ -59,7 +54,7 @@ module.exports = {
 	},
 
 	plugins: [
-		new CleanWebpackPlugin('dist', {}),
+		new CleanWebpackPlugin('docs', {}),
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
@@ -67,7 +62,7 @@ module.exports = {
 			filename: 'styles.[hash].css'
 		}),
 		new FaviconsWebpackPlugin({
-			logo: './src/news-icon.png',
+			logo: './src/balloon.png',
 			prefix: 'favicon-[hash]/',
 			persistentCache: true,
 			inject: true,
@@ -99,27 +94,14 @@ module.exports = {
 				use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
 			},
 			{
-				test: /\.(png|jpg|gif)$/,
+				test: /\.(png|jp(e*)g|svg)$/,
 				use: [{
 					loader: 'url-loader',
 					options: {
-						limit: 8192
+						limit: 8000,
+						name: 'images/[hash]-[name].[ext]'
 					}
 				}]
-			},
-
-			// {
-			// 	test: /\.svg$/,
-			// 	use: ['svg-inline-loader?classPrefix','svg-url-loader' ]
-			// },
-
-
-			{
-				test: /\.svg$/,
-				use: {
-					loader: 'svg-url-loader',
-					options: {}
-				}
 			},
 
 			{
@@ -136,8 +118,7 @@ module.exports = {
 		}
 	}
 
- 	// externals: {
-  //   	snapsvg: 'Snap'
-  // 	}
-
 }
+
+
+
