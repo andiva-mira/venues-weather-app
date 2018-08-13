@@ -124,7 +124,7 @@
         }
     }
 
-    &.btn-expand {
+    &.btn-expand, &.btn-close {
         background-color: rgba(255,255,255,.3);
         display: block;
         padding: 0;
@@ -226,6 +226,21 @@
             }
         }
 
+    }
+
+    &.btn-close {
+        border-radius: 20px 0 0 20px;
+        top: 5px;
+        left: unset;
+        right: 0;
+        //z-index: 99;
+        // background-color:rgba(255,255,255,.5);
+        // color:$btnBg;;
+        // width: 100px;
+
+        span {
+            text-align: center;
+        }
     }
 
 }

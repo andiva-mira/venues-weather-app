@@ -3,6 +3,7 @@ import {VenuesApiCall} from './modules/VenuesCall';
 import {CirclesAnimation} from './modules/CirclesAnimation';
 import ContentExpand from './modules/ContentExpand';
 import SvgLoad from'./modules/SvgLoad';
+import ResetSearch from'./modules/ResetSearch';
 import '../css/styles.scss';
 import attractions from '../images/attractions.svg';
 import cloudPair from '../images/icons/cloud-pair.svg';
@@ -14,6 +15,7 @@ import arrow from '../images/icons/arrow.svg';
 const weatherCall = ForecastApiCall();
 const venuesCall = VenuesApiCall(); 
 const circlesAnim = CirclesAnimation();
+new ResetSearch();
 new ContentExpand();
 
 const svgAttr = [attractions ];
